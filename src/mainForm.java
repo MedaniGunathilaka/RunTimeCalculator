@@ -57,6 +57,8 @@ public class mainForm extends javax.swing.JFrame {
         txtIndexOfJump = new javax.swing.JTextField();
         txtIndexOfBinary = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
+        txtTest = new javax.swing.JTextField();
+        btnTest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -71,7 +73,7 @@ public class mainForm extends javax.swing.JFrame {
                 btnGenerateArrayActionPerformed(evt);
             }
         });
-        getContentPane().add(btnGenerateArray, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
+        getContentPane().add(btnGenerateArray, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, -1, -1));
 
         jLabel1.setText("Linear Search");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
@@ -138,31 +140,65 @@ public class mainForm extends javax.swing.JFrame {
         getContentPane().add(txtIndexOfJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 60, -1));
         getContentPane().add(txtIndexOfBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 60, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, 170));
+        getContentPane().add(txtTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 200, 150));
+
+        btnTest.setText("test");
+        btnTest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTestActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void btnGenerateArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateArrayActionPerformed
-        Instant start = Instant.now();
-        
+    public void createRandomArray(){
         Integer[] arr = new Integer[10000];
         for(int i= 0; i< arr.length; i++){
             arr[i] =i;
         }
         Collections.shuffle(Arrays.asList(arr));
-        txtArray.setText(Arrays.toString(arr));   
-        
+        txtArray.setText(Arrays.toString(arr));
+    }
+    
+    private void btnGenerateArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateArrayActionPerformed
+        Instant start = Instant.now();        
+        createRandomArray();        
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
         lblArr.setText(String.valueOf(timeElapsed.toMillis()));      
     }//GEN-LAST:event_btnGenerateArrayActionPerformed
-
+    
+    public static int linearSearch(int[]array,int number){
+        for (int i=0; i<10000; i++){
+            if(array[i]==number){
+                return i;
+            }
+        }
+        return -1;
+    }
+    
+    public static int[] fromString(String string){
+        String[] str = string.replace("[", "").replace("]","").split(", ");
+        int res[] =new int[str.length];
+        for( int i =0 ; i<res.length;i++){
+            res[i] = Integer.parseInt(str[i]);
+        }
+        return res;
+    }
+    
     private void btnLinearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLinearActionPerformed
         Instant start = Instant.now();
-        String num = txtSearch.getText();
-        //some code starts here
+        int num = Integer.parseInt(txtSearch.getText());
         
+        //some code starts here
+        String s = txtArray.getText();
+        int[] arr= fromString(s);
+        int i = linearSearch(arr, num);
+        txtIndexOfLinear.setText(String.valueOf(i));
         //some code ends here
+        
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
         txtLinear.setText(String.valueOf(timeElapsed.toMillis()));
@@ -170,8 +206,15 @@ public class mainForm extends javax.swing.JFrame {
 
     private void btnJumpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJumpActionPerformed
         Instant start = Instant.now();
-        String num = txtSearch.getText();
+        int num = Integer.parseInt(txtSearch.getText());
+        
         //some code here
+        String s = txtArray.getText();
+        int[] arr= fromString(s);
+        int i = linearSearch(arr, num);
+        txtIndexOfJump.setText(String.valueOf(i));
+        //some code here
+        
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
         txtJump.setText(String.valueOf(timeElapsed.toMillis()));
@@ -179,8 +222,15 @@ public class mainForm extends javax.swing.JFrame {
 
     private void btnBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBinaryActionPerformed
         Instant start = Instant.now();
-        String num = txtSearch.getText();
+        int num = Integer.parseInt(txtSearch.getText());
+        
         //some code here
+        String s = txtArray.getText();
+        int[] arr= fromString(s);
+        int i = linearSearch(arr, num);
+        txtIndexOfBinary.setText(String.valueOf(i));
+        //some code here
+        
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
         txtBinary.setText(String.valueOf(timeElapsed.toMillis()));
@@ -188,12 +238,39 @@ public class mainForm extends javax.swing.JFrame {
 
     private void btnInterpolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInterpolActionPerformed
         Instant start = Instant.now();
-        String num = txtSearch.getText();
+        int num = Integer.parseInt(txtSearch.getText());
+        
         //some code here
+        String s = txtArray.getText();
+        int[] arr= fromString(s);
+        int i = linearSearch(arr, num);
+        txtIndexOfInterpol.setText(String.valueOf(i));
+        //some code here
+        
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
         txtInterpol.setText(String.valueOf(timeElapsed.toMillis()));
     }//GEN-LAST:event_btnInterpolActionPerformed
+
+    private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
+//        // TODO add your handling code here:
+//        Integer[] arr = new Integer[10000];
+//        for(int i= 0; i< arr.length; i++){
+//            arr[i] =i;
+//        }
+//        Collections.shuffle(Arrays.asList(arr));
+//        txtTest.setText(Arrays.toString(arr));
+//        
+//        
+//        int num = Integer.parseInt(txtSearch.getText());
+//
+//        
+//        for (int i=0; i<10000; i++){
+//            if(arr[i]==num){
+//                txtIndexOfLinear.setText(String.valueOf(i));
+//            }
+//        }
+    }//GEN-LAST:event_btnTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -236,6 +313,7 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnInterpol;
     private javax.swing.JButton btnJump;
     private javax.swing.JButton btnLinear;
+    private javax.swing.JButton btnTest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -256,5 +334,6 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtJump;
     private javax.swing.JTextField txtLinear;
     private javax.swing.JTextField txtSearch;
+    private javax.swing.JTextField txtTest;
     // End of variables declaration//GEN-END:variables
 }
