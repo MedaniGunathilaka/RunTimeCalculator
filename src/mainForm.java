@@ -34,7 +34,6 @@ public class mainForm extends javax.swing.JFrame {
 
         jScrollPane3 = new javax.swing.JScrollPane();
         txtArray = new javax.swing.JTextPane();
-        btnSearch = new javax.swing.JButton();
         btnGenerateArray = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -45,21 +44,26 @@ public class mainForm extends javax.swing.JFrame {
         txtJump = new javax.swing.JTextField();
         txtBinary = new javax.swing.JTextField();
         txtInterpol = new javax.swing.JTextField();
+        btnLinear = new javax.swing.JButton();
+        btnJump = new javax.swing.JButton();
+        btnBinary = new javax.swing.JButton();
+        btnInterpol = new javax.swing.JButton();
+        lblArr = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtIndexOfInterpol = new javax.swing.JTextField();
+        txtIndexOfLinear = new javax.swing.JTextField();
+        txtIndexOfJump = new javax.swing.JTextField();
+        txtIndexOfBinary = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane3.setViewportView(txtArray);
 
-        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 460, 180));
-
-        btnSearch.setText("Search");
-        btnSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSearchActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, -1, -1));
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 460, 180));
 
         btnGenerateArray.setText("Generate Array");
         btnGenerateArray.addActionListener(new java.awt.event.ActionListener() {
@@ -70,30 +74,74 @@ public class mainForm extends javax.swing.JFrame {
         getContentPane().add(btnGenerateArray, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
 
         jLabel1.setText("Linear Search");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 340, -1, -1));
 
         jLabel2.setText("Jump Search");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, 86, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 340, 86, -1));
 
         jLabel3.setText("Binary Search");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 340, -1, -1));
 
         jLabel4.setText("Interpolation Search");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
-        getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, 110, 30));
-        getContentPane().add(txtLinear, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 370, 130, -1));
-        getContentPane().add(txtJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 130, -1));
-        getContentPane().add(txtBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 140, -1));
-        getContentPane().add(txtInterpol, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 370, 140, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
+        getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
+        getContentPane().add(txtLinear, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 130, -1));
+        getContentPane().add(txtJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 130, -1));
+        getContentPane().add(txtBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 140, -1));
+        getContentPane().add(txtInterpol, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 140, -1));
+
+        btnLinear.setText(">");
+        btnLinear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLinearActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnLinear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
+
+        btnJump.setText(">");
+        btnJump.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnJumpActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
+
+        btnBinary.setText(">");
+        btnBinary.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBinaryActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 340, -1, -1));
+
+        btnInterpol.setText(">");
+        btnInterpol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInterpolActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnInterpol, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
+
+        lblArr.setText("__");
+        getContentPane().add(lblArr, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 30, -1));
+
+        jLabel6.setText("Array generated in :");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
+
+        jLabel5.setText("Index : ");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
+
+        jLabel7.setText("Search Time :");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
+        getContentPane().add(txtIndexOfInterpol, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 60, -1));
+        getContentPane().add(txtIndexOfLinear, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, 60, -1));
+        getContentPane().add(txtIndexOfJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 60, -1));
+        getContentPane().add(txtIndexOfBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 60, -1));
+        getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, 170));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        String num = txtSearch.getText();
-                
-    }//GEN-LAST:event_btnSearchActionPerformed
-
+    
     private void btnGenerateArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateArrayActionPerformed
         Instant start = Instant.now();
         
@@ -102,13 +150,50 @@ public class mainForm extends javax.swing.JFrame {
             arr[i] =i;
         }
         Collections.shuffle(Arrays.asList(arr));
-        txtArray.setText(Arrays.toString(arr));     
+        txtArray.setText(Arrays.toString(arr));   
         
-
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
-        txtBinary.setText(String.valueOf(timeElapsed.toMillis()));      
+        lblArr.setText(String.valueOf(timeElapsed.toMillis()));      
     }//GEN-LAST:event_btnGenerateArrayActionPerformed
+
+    private void btnLinearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLinearActionPerformed
+        Instant start = Instant.now();
+        String num = txtSearch.getText();
+        //some code starts here
+        
+        //some code ends here
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        txtLinear.setText(String.valueOf(timeElapsed.toMillis()));
+    }//GEN-LAST:event_btnLinearActionPerformed
+
+    private void btnJumpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJumpActionPerformed
+        Instant start = Instant.now();
+        String num = txtSearch.getText();
+        //some code here
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        txtJump.setText(String.valueOf(timeElapsed.toMillis()));
+    }//GEN-LAST:event_btnJumpActionPerformed
+
+    private void btnBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBinaryActionPerformed
+        Instant start = Instant.now();
+        String num = txtSearch.getText();
+        //some code here
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        txtBinary.setText(String.valueOf(timeElapsed.toMillis()));
+    }//GEN-LAST:event_btnBinaryActionPerformed
+
+    private void btnInterpolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInterpolActionPerformed
+        Instant start = Instant.now();
+        String num = txtSearch.getText();
+        //some code here
+        Instant end = Instant.now();
+        Duration timeElapsed = Duration.between(start, end);
+        txtInterpol.setText(String.valueOf(timeElapsed.toMillis()));
+    }//GEN-LAST:event_btnInterpolActionPerformed
 
     /**
      * @param args the command line arguments
@@ -146,15 +231,27 @@ public class mainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBinary;
     private javax.swing.JButton btnGenerateArray;
-    private javax.swing.JButton btnSearch;
+    private javax.swing.JButton btnInterpol;
+    private javax.swing.JButton btnJump;
+    private javax.swing.JButton btnLinear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JLabel lblArr;
     private javax.swing.JTextPane txtArray;
     private javax.swing.JTextField txtBinary;
+    private javax.swing.JTextField txtIndexOfBinary;
+    private javax.swing.JTextField txtIndexOfInterpol;
+    private javax.swing.JTextField txtIndexOfJump;
+    private javax.swing.JTextField txtIndexOfLinear;
     private javax.swing.JTextField txtInterpol;
     private javax.swing.JTextField txtJump;
     private javax.swing.JTextField txtLinear;
