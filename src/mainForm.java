@@ -57,8 +57,7 @@ public class mainForm extends javax.swing.JFrame {
         txtIndexOfJump = new javax.swing.JTextField();
         txtIndexOfBinary = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
-        txtTest = new javax.swing.JTextField();
-        btnTest = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,7 +85,7 @@ public class mainForm extends javax.swing.JFrame {
 
         jLabel4.setText("Interpolation Search");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, -1));
-        getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, 80, 30));
+        getContentPane().add(txtSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, 80, 30));
         getContentPane().add(txtLinear, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 130, -1));
         getContentPane().add(txtJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 440, 130, -1));
         getContentPane().add(txtBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 140, -1));
@@ -98,7 +97,7 @@ public class mainForm extends javax.swing.JFrame {
                 btnLinearActionPerformed(evt);
             }
         });
-        getContentPane().add(btnLinear, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
+        getContentPane().add(btnLinear, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
 
         btnJump.setText(">");
         btnJump.addActionListener(new java.awt.event.ActionListener() {
@@ -140,15 +139,9 @@ public class mainForm extends javax.swing.JFrame {
         getContentPane().add(txtIndexOfJump, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, 60, -1));
         getContentPane().add(txtIndexOfBinary, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 60, -1));
         getContentPane().add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 300, -1, 170));
-        getContentPane().add(txtTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 150, 200, 150));
 
-        btnTest.setText("test");
-        btnTest.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnTestActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnTest, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 120, -1, -1));
+        jLabel8.setText("Enter any number to search");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 160, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -176,6 +169,26 @@ public class mainForm extends javax.swing.JFrame {
                 return i;
             }
         }
+        return -1;
+    }
+    
+    public static int jumpSearch(int[] array, int number){
+        int jumpStep = (int) Math.sqrt(array.length);
+        int prevStep = 0;
+        
+        while (array[Math.min(jumpStep, array.length)-1]<number){
+            prevStep = jumpStep;
+            jumpStep += (int)(Math.sqrt(array.length));
+                if (prevStep>= array.length)
+                    return -1;
+        }
+        while(array[prevStep]< number){
+            prevStep++;
+            if(prevStep == Math.min(jumpStep, array.length))
+                return -1;
+        }
+        if (array[prevStep] == number)
+            return prevStep;
         return -1;
     }
     
@@ -211,7 +224,7 @@ public class mainForm extends javax.swing.JFrame {
         //some code here
         String s = txtArray.getText();
         int[] arr= fromString(s);
-        int i = linearSearch(arr, num);
+        int i = jumpSearch(arr, num);
         txtIndexOfJump.setText(String.valueOf(i));
         //some code here
         
@@ -251,26 +264,6 @@ public class mainForm extends javax.swing.JFrame {
         Duration timeElapsed = Duration.between(start, end);
         txtInterpol.setText(String.valueOf(timeElapsed.toMillis()));
     }//GEN-LAST:event_btnInterpolActionPerformed
-
-    private void btnTestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestActionPerformed
-//        // TODO add your handling code here:
-//        Integer[] arr = new Integer[10000];
-//        for(int i= 0; i< arr.length; i++){
-//            arr[i] =i;
-//        }
-//        Collections.shuffle(Arrays.asList(arr));
-//        txtTest.setText(Arrays.toString(arr));
-//        
-//        
-//        int num = Integer.parseInt(txtSearch.getText());
-//
-//        
-//        for (int i=0; i<10000; i++){
-//            if(arr[i]==num){
-//                txtIndexOfLinear.setText(String.valueOf(i));
-//            }
-//        }
-    }//GEN-LAST:event_btnTestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,7 +306,6 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JButton btnInterpol;
     private javax.swing.JButton btnJump;
     private javax.swing.JButton btnLinear;
-    private javax.swing.JButton btnTest;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -321,6 +313,7 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblArr;
@@ -334,6 +327,5 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JTextField txtJump;
     private javax.swing.JTextField txtLinear;
     private javax.swing.JTextField txtSearch;
-    private javax.swing.JTextField txtTest;
     // End of variables declaration//GEN-END:variables
 }
