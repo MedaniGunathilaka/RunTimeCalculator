@@ -3,6 +3,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.Random;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -124,7 +125,7 @@ public class mainForm extends javax.swing.JFrame {
         getContentPane().add(btnInterpol, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 340, -1, -1));
 
         lblArr.setText("__");
-        getContentPane().add(lblArr, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 30, -1));
+        getContentPane().add(lblArr, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 210, 110, -1));
 
         jLabel6.setText("Array generated in :");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 210, -1, -1));
@@ -147,11 +148,12 @@ public class mainForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     
     public void createRandomArray(){
-        Integer[] arr = new Integer[10000];
-        for(int i= 0; i< arr.length; i++){
-            arr[i] =i;
-        }
-        Collections.shuffle(Arrays.asList(arr));
+        Random rd = new Random();
+        int[] arr = new int[10000];
+        for (int i=0; i<arr.length;i++){
+            arr[i]= rd.nextInt(400000);
+        } 
+        Arrays.sort(arr); //implement later 
         txtArray.setText(Arrays.toString(arr));
     }
     
@@ -160,7 +162,7 @@ public class mainForm extends javax.swing.JFrame {
         createRandomArray();        
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
-        lblArr.setText(String.valueOf(timeElapsed.toMillis()));      
+        lblArr.setText(String.valueOf(timeElapsed.toNanos()));      
     }//GEN-LAST:event_btnGenerateArrayActionPerformed
     
     public static int linearSearch(int[]array,int number){
@@ -192,6 +194,25 @@ public class mainForm extends javax.swing.JFrame {
         return -1;
     }
     
+    public static int binarySearch(int[] array, int number){
+        int first, last, middle,i;
+        i = array.length;
+        first = 0;
+        last = i-1;
+        middle = (first + last)/2;
+        
+        while (first <= last){
+            if (array[middle] < number){
+                first = middle + 1;
+            }else if(array[middle]==number){
+                return middle +1;
+            }else{
+                last = middle -1;
+            }middle = (first +last)/2;
+        }
+        return -1;
+    }
+    
     public static int[] fromString(String string){
         String[] str = string.replace("[", "").replace("]","").split(", ");
         int res[] =new int[str.length];
@@ -214,7 +235,7 @@ public class mainForm extends javax.swing.JFrame {
         
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
-        txtLinear.setText(String.valueOf(timeElapsed.toMillis()));
+        txtLinear.setText(String.valueOf(timeElapsed.toNanos()));
     }//GEN-LAST:event_btnLinearActionPerformed
 
     private void btnJumpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJumpActionPerformed
@@ -230,7 +251,7 @@ public class mainForm extends javax.swing.JFrame {
         
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
-        txtJump.setText(String.valueOf(timeElapsed.toMillis()));
+        txtJump.setText(String.valueOf(timeElapsed.toNanos()));
     }//GEN-LAST:event_btnJumpActionPerformed
 
     private void btnBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBinaryActionPerformed
@@ -246,7 +267,7 @@ public class mainForm extends javax.swing.JFrame {
         
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
-        txtBinary.setText(String.valueOf(timeElapsed.toMillis()));
+        txtBinary.setText(String.valueOf(timeElapsed.toNanos()));
     }//GEN-LAST:event_btnBinaryActionPerformed
 
     private void btnInterpolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInterpolActionPerformed
@@ -262,7 +283,7 @@ public class mainForm extends javax.swing.JFrame {
         
         Instant end = Instant.now();
         Duration timeElapsed = Duration.between(start, end);
-        txtInterpol.setText(String.valueOf(timeElapsed.toMillis()));
+        txtInterpol.setText(String.valueOf(timeElapsed.toNanos()));
     }//GEN-LAST:event_btnInterpolActionPerformed
 
     /**
