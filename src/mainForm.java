@@ -2,7 +2,6 @@
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.Random;
 
 /*
@@ -211,6 +210,34 @@ public class mainForm extends javax.swing.JFrame {
             }middle = (first +last)/2;
         }
         return -1;
+    }
+    
+    public static int interpolSearch(int[] array, int number){
+        int highEnd = array.length -1;
+        int lowEnd = 0;
+        
+        while (number >= array[lowEnd] && number <= array[highEnd] && lowEnd <= highEnd){
+            int probe= lowEnd + (highEnd - lowEnd) * (number - array[lowEnd])/ (array[highEnd] - array[lowEnd]);
+             if (highEnd == lowEnd) {
+            if (array[lowEnd] == number) {
+                return lowEnd;
+            } else {
+                return -1;
+            }
+        }
+ 
+        if (array[probe] == number) {
+            return probe;
+        }
+ 
+        if (array[probe] < number) {
+            lowEnd = probe + 1;
+        } else {
+            highEnd = probe - 1;
+        }
+    }
+    return -1;
+        
     }
     
     public static int[] fromString(String string){
