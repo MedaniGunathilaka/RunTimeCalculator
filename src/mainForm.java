@@ -9,7 +9,6 @@ import java.util.Random;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Lahiruka
@@ -58,9 +57,12 @@ public class mainForm extends javax.swing.JFrame {
         txtIndexOfBinary = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        btnClear = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("RunTimeCalculator");
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jScrollPane3.setViewportView(txtArray);
 
@@ -79,6 +81,15 @@ public class mainForm extends javax.swing.JFrame {
 
         jLabel4.setText("Interpolation Search");
 
+        txtLinear.setBackground(new java.awt.Color(255, 204, 204));
+
+        txtJump.setBackground(new java.awt.Color(204, 255, 255));
+
+        txtBinary.setBackground(new java.awt.Color(204, 204, 255));
+
+        txtInterpol.setBackground(new java.awt.Color(255, 255, 204));
+
+        btnLinear.setBackground(new java.awt.Color(255, 0, 102));
         btnLinear.setText(">");
         btnLinear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,6 +97,7 @@ public class mainForm extends javax.swing.JFrame {
             }
         });
 
+        btnJump.setBackground(new java.awt.Color(0, 255, 255));
         btnJump.setText(">");
         btnJump.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -93,6 +105,7 @@ public class mainForm extends javax.swing.JFrame {
             }
         });
 
+        btnBinary.setBackground(new java.awt.Color(0, 0, 255));
         btnBinary.setText(">");
         btnBinary.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -100,6 +113,7 @@ public class mainForm extends javax.swing.JFrame {
             }
         });
 
+        btnInterpol.setBackground(new java.awt.Color(255, 255, 0));
         btnInterpol.setText(">");
         btnInterpol.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,7 +129,24 @@ public class mainForm extends javax.swing.JFrame {
 
         jLabel7.setText("Search Time :");
 
-        jLabel8.setText("Enter any number to search");
+        txtIndexOfInterpol.setBackground(new java.awt.Color(255, 255, 153));
+
+        txtIndexOfLinear.setBackground(new java.awt.Color(255, 153, 153));
+
+        txtIndexOfJump.setBackground(new java.awt.Color(153, 255, 255));
+
+        txtIndexOfBinary.setBackground(new java.awt.Color(153, 153, 255));
+
+        jLabel8.setText("Enter any number from Array to search");
+
+        jLabel9.setText("(nano seconds)");
+
+        btnClear.setText("Clear");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -124,35 +155,40 @@ public class mainForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel7))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabel1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnLinear))
-                        .addComponent(txtLinear, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtIndexOfLinear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtIndexOfJump, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtJump, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnJump)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnBinary))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(txtIndexOfBinary, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtBinary, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel7))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel1)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnLinear))
+                                .addComponent(txtLinear, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtIndexOfLinear, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(34, 34, 34)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtIndexOfJump, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtJump, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnJump)))
+                        .addGap(35, 35, 35)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnBinary))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtIndexOfBinary, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtBinary, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,42 +204,46 @@ public class mainForm extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 540, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnGenerateArray)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnGenerateArray)
+                                        .addGap(44, 44, 44)
+                                        .addComponent(btnClear, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(330, 330, 330)
+                        .addGap(328, 328, 328)
                         .addComponent(jLabel6)
-                        .addGap(2, 2, 2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblArr, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(btnGenerateArray)
-                        .addGap(97, 97, 97)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnGenerateArray)
+                            .addComponent(btnClear))
+                        .addGap(86, 86, 86)
                         .addComponent(jLabel8)
                         .addGap(6, 6, 6)
-                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(txtSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(lblArr))
-                .addGap(76, 76, 76)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(80, 80, 80)
-                        .addComponent(jLabel5)
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel7))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -235,179 +275,197 @@ public class mainForm extends javax.swing.JFrame {
                             .addComponent(txtJump, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtBinary, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtInterpol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel5)
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel9)))
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    public void createRandomArray(){
+
+    public void createRandomArray() {
         Random rd = new Random();
         int[] arr = new int[10000];
-        for (int i=0; i<arr.length;i++){
-            arr[i]= rd.nextInt(1000000);
-        } 
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = rd.nextInt(1000000);
+        }
         Arrays.sort(arr);
         txtArray.setText(Arrays.toString(arr));
     }
-    
+
     private void btnGenerateArrayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGenerateArrayActionPerformed
-        Instant start = Instant.now();        
-        createRandomArray();        
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        lblArr.setText(String.valueOf(timeElapsed.toNanos()));      
+        long startTime = System.nanoTime();
+        createRandomArray();
+        long endTime = System.nanoTime();
+
+        long duration = (endTime - startTime);
+        lblArr.setText(String.valueOf(duration));
     }//GEN-LAST:event_btnGenerateArrayActionPerformed
-    
-    public static int linearSearch(int[]array,int number){
-        for (int i=0; i<10000; i++){
-            if(array[i]==number){
+
+    public static int linearSearch(int[] array, int number) {
+        for (int i = 0; i < 10000; i++) {
+            if (array[i] == number) {
                 return i;
             }
         }
         return -1;
     }
-    
-    public static int jumpSearch(int[] array, int number){
+
+    public static int jumpSearch(int[] array, int number) {
         int jumpStep = (int) Math.sqrt(array.length);
         int prevStep = 0;
-        
-        while (array[Math.min(jumpStep, array.length)-1]<number){
+
+        while (array[Math.min(jumpStep, array.length) - 1] < number) {
             prevStep = jumpStep;
-            jumpStep += (int)(Math.sqrt(array.length));
-                if (prevStep>= array.length)
-                    return -1;
-        }
-        while(array[prevStep]< number){
-            prevStep++;
-            if(prevStep == Math.min(jumpStep, array.length))
-                return -1;
-        }
-        if (array[prevStep] == number)
-            return prevStep;
-        return -1;
-    }
-    
-    public static int binarySearch(int[] array, int number){
-        int first, last, middle,i;
-        i = array.length;
-        first = 0;
-        last = i-1;
-        middle = (first + last)/2;
-        
-        while (first <= last){
-            if (array[middle] < number){
-                first = middle + 1;
-            }else if(array[middle]==number){
-                return middle +1;
-            }else{
-                last = middle -1;
-            }middle = (first +last)/2;
-        }
-        return -1;
-    }
-    
-    public static int interpolSearch(int[] array, int number){
-        int highEnd = array.length -1;
-        int lowEnd = 0;
-        
-        while (number >= array[lowEnd] && number <= array[highEnd] && lowEnd <= highEnd){
-            int probe= lowEnd + (highEnd - lowEnd) * (number - array[lowEnd])/ (array[highEnd] - array[lowEnd]);
-             if (highEnd == lowEnd) {
-            if (array[lowEnd] == number) {
-                return lowEnd;
-            } else {
+            jumpStep += (int) (Math.sqrt(array.length));
+            if (prevStep >= array.length) {
                 return -1;
             }
         }
- 
-        if (array[probe] == number) {
-            return probe;
+        while (array[prevStep] < number) {
+            prevStep++;
+            if (prevStep == Math.min(jumpStep, array.length)) {
+                return -1;
+            }
         }
- 
-        if (array[probe] < number) {
-            lowEnd = probe + 1;
-        } else {
-            highEnd = probe - 1;
+        if (array[prevStep] == number) {
+            return prevStep;
         }
+        return -1;
     }
-    return -1;
-        
+
+    public static int binarySearch(int[] array, int number) {
+        int first, last, middle, i;
+        i = array.length;
+        first = 0;
+        last = i - 1;
+        middle = (first + last) / 2;
+
+        while (first <= last) {
+            if (array[middle] < number) {
+                first = middle + 1;
+            } else if (array[middle] == number) {
+                return middle + 1;
+            } else {
+                last = middle - 1;
+            }
+            middle = (first + last) / 2;
+        }
+        return -1;
     }
-    
-    public static int[] fromString(String string){
-        String[] str = string.replace("[", "").replace("]","").split(", ");
-        int res[] =new int[str.length];
-        for( int i =0 ; i<res.length;i++){
+
+    public static int interpolSearch(int[] array, int number) {
+        int highEnd = array.length - 1;
+        int lowEnd = 0;
+
+        while (number >= array[lowEnd] && number <= array[highEnd] && lowEnd <= highEnd) {
+            int probe = lowEnd + (highEnd - lowEnd) * (number - array[lowEnd]) / (array[highEnd] - array[lowEnd]);
+            if (highEnd == lowEnd) {
+                if (array[lowEnd] == number) {
+                    return lowEnd;
+                } else {
+                    return -1;
+                }
+            }
+
+            if (array[probe] == number) {
+                return probe;
+            }
+
+            if (array[probe] < number) {
+                lowEnd = probe + 1;
+            } else {
+                highEnd = probe - 1;
+            }
+        }
+        return -1;
+
+    }
+
+    public static int[] fromString(String string) {
+        String[] str = string.replace("[", "").replace("]", "").split(", ");
+        int res[] = new int[str.length];
+        for (int i = 0; i < res.length; i++) {
             res[i] = Integer.parseInt(str[i]);
         }
         return res;
     }
-    
+
     private void btnLinearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLinearActionPerformed
-        Instant start = Instant.now();
+        long startTime = System.nanoTime();
         int num = Integer.parseInt(txtSearch.getText());
-        
-        //some code starts here
+
         String s = txtArray.getText();
-        int[] arr= fromString(s);
+        int[] arr = fromString(s);
         int i = linearSearch(arr, num);
         txtIndexOfLinear.setText(String.valueOf(i));
-        //some code ends here
-        
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        txtLinear.setText(String.valueOf(timeElapsed.toNanos()));
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        txtLinear.setText(String.valueOf(duration));
     }//GEN-LAST:event_btnLinearActionPerformed
 
     private void btnJumpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnJumpActionPerformed
-        Instant start = Instant.now();
+        long startTime = System.nanoTime();
         int num = Integer.parseInt(txtSearch.getText());
-        
-        //some code here
+
         String s = txtArray.getText();
-        int[] arr= fromString(s);
+        int[] arr = fromString(s);
         int i = jumpSearch(arr, num);
         txtIndexOfJump.setText(String.valueOf(i));
-        //some code here
-        
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        txtJump.setText(String.valueOf(timeElapsed.toNanos()));
+
+        long endTime = System.nanoTime();
+        long duration = (endTime - startTime);
+        txtJump.setText(String.valueOf(duration));
     }//GEN-LAST:event_btnJumpActionPerformed
 
     private void btnBinaryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBinaryActionPerformed
-        Instant start = Instant.now();
+        long startTime = System.nanoTime();
         int num = Integer.parseInt(txtSearch.getText());
-        
-        //some code here
+
         String s = txtArray.getText();
-        int[] arr= fromString(s);
+        int[] arr = fromString(s);
         int i = linearSearch(arr, num);
         txtIndexOfBinary.setText(String.valueOf(i));
-        //some code here
-        
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        txtBinary.setText(String.valueOf(timeElapsed.toNanos()));
+
+        long endTime = System.nanoTime();        
+        long duration = (endTime - startTime);
+        txtBinary.setText(String.valueOf(duration)); 
     }//GEN-LAST:event_btnBinaryActionPerformed
 
     private void btnInterpolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInterpolActionPerformed
-        Instant start = Instant.now();
+        long startTime = System.nanoTime();
         int num = Integer.parseInt(txtSearch.getText());
-        
-        //some code here
+
         String s = txtArray.getText();
-        int[] arr= fromString(s);
+        int[] arr = fromString(s);
         int i = linearSearch(arr, num);
         txtIndexOfInterpol.setText(String.valueOf(i));
-        //some code here
-        
-        Instant end = Instant.now();
-        Duration timeElapsed = Duration.between(start, end);
-        txtInterpol.setText(String.valueOf(timeElapsed.toNanos()));
+
+        long endTime = System.nanoTime();        
+        long duration = (endTime - startTime);
+        txtInterpol.setText(String.valueOf(duration));
     }//GEN-LAST:event_btnInterpolActionPerformed
+
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+    lblArr.setText("");
+    txtArray.setText("");
+    txtBinary.setText("");
+    txtIndexOfBinary.setText("");
+    txtIndexOfInterpol.setText("");
+    txtIndexOfJump.setText("");
+    txtIndexOfLinear.setText("");
+    txtInterpol.setText("");
+    txtJump.setText("");
+    txtLinear.setText("");
+    txtSearch.setText("");
+    }//GEN-LAST:event_btnClearActionPerformed
 
     /**
      * @param args the command line arguments
@@ -446,6 +504,7 @@ public class mainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBinary;
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnGenerateArray;
     private javax.swing.JButton btnInterpol;
     private javax.swing.JButton btnJump;
@@ -458,6 +517,7 @@ public class mainForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblArr;
