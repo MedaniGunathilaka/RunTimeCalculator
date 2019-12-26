@@ -1,6 +1,4 @@
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -11,7 +9,7 @@ import java.util.Random;
  */
 /**
  *
- * @author Lahiruka
+ * @author Lahiruka Wijesinghe | 2017/IS/098 | 17020982
  */
 public class mainForm extends javax.swing.JFrame {
 
@@ -362,13 +360,13 @@ public class mainForm extends javax.swing.JFrame {
 
     public static int interpolSearch(int[] array, int number) {
         int highEnd = array.length - 1;
-        int lowEnd = 0;
+        int lowerEnd = 0;
 
-        while (number >= array[lowEnd] && number <= array[highEnd] && lowEnd <= highEnd) {
-            int probe = lowEnd + (highEnd - lowEnd) * (number - array[lowEnd]) / (array[highEnd] - array[lowEnd]);
-            if (highEnd == lowEnd) {
-                if (array[lowEnd] == number) {
-                    return lowEnd;
+        while (number >= array[lowerEnd] && number <= array[highEnd] && lowerEnd <= highEnd) {
+            int probe = lowerEnd + (highEnd - lowerEnd) * (number - array[lowerEnd]) / (array[highEnd] - array[lowerEnd]);
+            if (highEnd == lowerEnd) {
+                if (array[lowerEnd] == number) {
+                    return lowerEnd;
                 } else {
                     return -1;
                 }
@@ -379,7 +377,7 @@ public class mainForm extends javax.swing.JFrame {
             }
 
             if (array[probe] < number) {
-                lowEnd = probe + 1;
+                lowerEnd = probe + 1;
             } else {
                 highEnd = probe - 1;
             }
@@ -434,9 +432,9 @@ public class mainForm extends javax.swing.JFrame {
         int i = linearSearch(arr, num);
         txtIndexOfBinary.setText(String.valueOf(i));
 
-        long endTime = System.nanoTime();        
+        long endTime = System.nanoTime();
         long duration = (endTime - startTime);
-        txtBinary.setText(String.valueOf(duration)); 
+        txtBinary.setText(String.valueOf(duration));
     }//GEN-LAST:event_btnBinaryActionPerformed
 
     private void btnInterpolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInterpolActionPerformed
@@ -448,23 +446,23 @@ public class mainForm extends javax.swing.JFrame {
         int i = linearSearch(arr, num);
         txtIndexOfInterpol.setText(String.valueOf(i));
 
-        long endTime = System.nanoTime();        
+        long endTime = System.nanoTime();
         long duration = (endTime - startTime);
         txtInterpol.setText(String.valueOf(duration));
     }//GEN-LAST:event_btnInterpolActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-    lblArr.setText("");
-    txtArray.setText("");
-    txtBinary.setText("");
-    txtIndexOfBinary.setText("");
-    txtIndexOfInterpol.setText("");
-    txtIndexOfJump.setText("");
-    txtIndexOfLinear.setText("");
-    txtInterpol.setText("");
-    txtJump.setText("");
-    txtLinear.setText("");
-    txtSearch.setText("");
+        lblArr.setText("");
+        txtArray.setText("");
+        txtBinary.setText("");
+        txtIndexOfBinary.setText("");
+        txtIndexOfInterpol.setText("");
+        txtIndexOfJump.setText("");
+        txtIndexOfLinear.setText("");
+        txtInterpol.setText("");
+        txtJump.setText("");
+        txtLinear.setText("");
+        txtSearch.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
 
     /**
